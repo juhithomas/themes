@@ -7,12 +7,37 @@
         <Title>{Title}</Title>
         <style>
             
+            .sidebar {
+                width:200px;
+                position:fixed;
+                top:100px;
+                left: 25%;
+                background: #000;   
+                padding:20px 30px;
+            }
+            
+            .sidebarimage { 
+                width:228px; 
+            }
+            
+            .sidebarimage img {
+                width:200px; 
+                border-radius:0; 
+            }
+            
+            .sidebar a {
+                text-decoration: none;
+                color: #fff;
+            }
+            
         </style>
     </head>
     <body>
         <div class="sidebar">
             <h1><a href="{BlogURL}">{Title}</a></h1>
-            <img src="{image:Sidebar}"/>
+            <div class="sidebarimage">
+                <a href="/"><img src="{image:Sidebar}"></a>
+            </div>
         </div>
     </body>
 </html>
