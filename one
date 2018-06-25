@@ -2,6 +2,10 @@
 <html>
 
 <meta name="image:Sidebar" content=""/>
+
+<meta name="color:text" content="#fff"/>
+<meta name="color:links" content="#a24949"/>
+
 <meta name="text:Link 1 Name" content="one"/>
 <meta name="text:Link 1 URL" content=""/>
 <meta name="text:Link 2 Name" content="two"/>
@@ -22,7 +26,7 @@
                 left: 25%;
                 background: #000;   
                 padding: 20px 30px;
-                border: 1px solid #000;
+                border-top: 1px solid #000;
             }
             
             
@@ -37,18 +41,16 @@
             }
             
             .sidebar a:hover {
-                color:#10e403;
+                color: {color:links};
             }
             
             .sidebar ul {
                 font-size: 12px;
                 list-style-type: none;
-                padding: 0px;
+                padding: 10px;
             }
             
             .sidebar li {
-                border: 1px solid #fff;
-
             }
             
             .sidebar li {
