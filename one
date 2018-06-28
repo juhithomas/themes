@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-<meta name="image:Sidebar" content=""/>
+<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+
+<meta name="image:sidebar" content=""/>
 
 <meta name="color:text" content="#fff"/>
 <meta name="color:links" content="#a24949"/>
+<meta name="color:background" content="#fff"/>
+<meta name="color:sidebar color" content="#fff"/>
+
 
 <meta name="text:Link 1 Name" content="one"/>
 <meta name="text:Link 1 URL" content=""/>
@@ -19,59 +24,64 @@
         <Title>{Title}</Title>
         <style>
             
-            .sidebar {
-                width: 200px;
-                position: fixed;
-                top: 100px;
-                left: 25%;
-                background: #000;   
-                padding: 20px 30px;
-                border-top: 1px solid #000;
+            body {
+                background: {color:background};
+                
             }
             
+            .sidebar {
+                background: {color:sidebar color};
+                width: 200px;
+                position: fixed;
+                left: 25%;
+                top: 150px;
+                margin-top: 50px;
+                color: #000;
+                text-align: center;
+                font-family: 'Shadows Into Light', cursive;
+                padding: 20px;
+            }
             
             .sidebar img {
-                width: 200px; 
+                width: 100px;
+                height: 100px;
                 border-radius: 0;
+                margin: 0 auto;
             }
             
             .sidebar a {
                 text-decoration: none;
-                color: #fff;
+                color: {color:text};
             }
             
             .sidebar a:hover {
                 color: {color:links};
+                transition: all 0.5s;
             }
             
             .sidebar ul {
-                font-size: 12px;
+                font-size: 18px;
                 list-style-type: none;
                 padding: 10px;
-            }
-            
-            .sidebar li {
-            }
-            
-            .sidebar li {
-                
             }
             
         </style>
     </head>
     <body>
         <div class="sidebar">
-            <h1><a href="{BlogURL}">{Title}</a></h1>
             {block:ifSidebarImage}
             <a href="/"><img src="{image:Sidebar}"></a>
             {/block:ifSidebarImage}
+            <h1><a href="{BlogURL}">{Title}</a></h1>
             <ul>
-                <li><a href="/ask"><h2>ask</h2></a></li>
-                {block:ifLink1Name}<li><a href="{text:Link 1 URL}"><h2>{text:Link 1 Name}</h2></a></li>{/block:ifLink1Name}
-                {block:ifLink2Name}<li><a href="{text:Link 2 URL}"><h2>{text:Link 2 Name}</h2></a></li>{/block:ifLink2Name}
-                {block:ifLink3Name}<li><a href="{text:Link 3 URL}"><h2>{text:Link 3 Name}</h2></a></li>{/block:ifLink3Name}
-                {block:ifLink4Name}<li><a href="{text:Link 4 URL}"><h2>{text:Link 4 Name}</h2></a></li>{/block:ifLink4Name}
+                {block:Description}<li>{Description}</li>{/block:Description}
+                <li><a href="/ask">ask</a></li>
+                {block:ifLink1Name}<li><a href="{text:Link 1 URL}">{text:Link 1 Name}</a></li>{/block:ifLink1Name}
+                {block:ifLink2Name}<li><a href="{text:Link 2 URL}">{text:Link 2 Name}</a></li>{/block:ifLink2Name}
+                {block:ifLink3Name}<li><a href="{text:Link 3 URL}">{text:Link 3 Name}</a></li>{/block:ifLink3Name}
+                {block:ifLink4Name}<li><a href="{text:Link 4 URL}">{text:Link 4 Name}</a></li>{/block:ifLink4Name}
             </ul>
+
         </div>
     </body>
 </html>
