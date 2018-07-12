@@ -20,12 +20,17 @@
 <meta name="text:Link 4 Name" content="four"/>
 <meta name="text:Link 4 URL" content=""/>
 
+{block:Description}
+    <meta name="description" content="{MetaDescription}" />
+{/block:Description}
+
     <head>
         <Title>{Title}</Title>
         <style>
             
             body {
                 background: {color:background};
+                color: black;
                 
             }
             
@@ -39,7 +44,8 @@
                 color: #000;
                 text-align: center;
                 font-family: 'Shadows Into Light', cursive;
-                padding: 20px;
+                padding: 10px 15px;
+                border-radius: 20px;
             }
             
             .sidebar img {
@@ -67,21 +73,18 @@
             
         </style>
     </head>
+    
     <body>
         <div class="sidebar">
             {block:ifSidebarImage}
-            <a href="/"><img src="{image:Sidebar}"></a>
+            <a href="{BlogURL}"><img src="{image:Sidebar}"></a>
             {/block:ifSidebarImage}
             <h1><a href="{BlogURL}">{Title}</a></h1>
+            {block:Description}<p id="description">{Description}</p>{/block:Description}
             <ul>
-                {block:Description}<li>{Description}</li>{/block:Description}
-                <li><a href="/ask">ask</a></li>
-                {block:ifLink1Name}<li><a href="{text:Link 1 URL}">{text:Link 1 Name}</a></li>{/block:ifLink1Name}
-                {block:ifLink2Name}<li><a href="{text:Link 2 URL}">{text:Link 2 Name}</a></li>{/block:ifLink2Name}
-                {block:ifLink3Name}<li><a href="{text:Link 3 URL}">{text:Link 3 Name}</a></li>{/block:ifLink3Name}
-                {block:ifLink4Name}<li><a href="{text:Link 4 URL}">{text:Link 4 Name}</a></li>{/block:ifLink4Name}
+                <li><a href="/ask">ask</a> {block:ifLink1Name}<a href="{text:Link 1 URL}">{text:Link 1 Name}</a>{/block:ifLink1Name} {block:ifLink2Name}<a href="{text:Link 2 URL}">{text:Link 2 Name}</a>{/block:ifLink2Name} {block:ifLink3Name}<a href="{text:Link 3 URL}">{text:Link 3 Name}</a>{/block:ifLink3Name} {block:ifLink4Name}<a href="{text:Link 4 URL}">{text:Link 4 Name}</a>{/block:ifLink4Name}</li>
             </ul>
-
         </div>
+        
     </body>
 </html>
